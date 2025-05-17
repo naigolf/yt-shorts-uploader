@@ -1,9 +1,16 @@
 name: Upload YouTube Shorts
 
+
+# ทุก 1 ชั่วโมง
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # ทุก 1 ชั่วโมง
+    # ช่วง 23:00 - 23:59 UTC (06:00-06:59 ไทย)
+    - cron: '0 23 * * *'
+
+    # ช่วง 00:00 - 18:00 UTC (07:00-01:00 ไทย)
+    - cron: '0 0-18 * * *'
+
+    
 
 jobs:
   upload_shorts:
