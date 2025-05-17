@@ -34,8 +34,8 @@ const uploadToYouTube = async (filePath) => {
     part: ['snippet', 'status'],
     requestBody: {
       snippet: {
-        title: 'Auto Uploaded Shorts',
-        description: 'Uploaded automatically',
+        title: 'Golf-HY',
+        description: 'Good VDO Shorts',
         tags: ['shorts'],
         categoryId: '22'
       },
