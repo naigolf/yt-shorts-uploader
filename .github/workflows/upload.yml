@@ -1,6 +1,5 @@
 name: Upload YouTube Shorts
 
-
 # ทุก 1 ชั่วโมง
 on:
   schedule:
@@ -9,8 +8,6 @@ on:
 
     # ช่วง 00:00 - 18:00 UTC (07:00-01:00 ไทย)
     - cron: '0 0-18 * * *'
-
-    
 
 jobs:
   upload_shorts:
