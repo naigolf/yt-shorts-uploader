@@ -75,6 +75,8 @@ const uploadToYouTube = async (filePath) => {
 // ✅ รวมทุกอย่าง
 const main = async () => {
   console.log("🚀 Starting process...");
+  console.log("🔍 SHEET_API_URL:", process.env.SHEET_API_URL);
+
 
   try {
     const url = await getVideoUrl();
