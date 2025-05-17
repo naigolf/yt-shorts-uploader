@@ -1,0 +1,32 @@
+name: Upload YouTube Shorts
+
+on:
+  schedule:
+    - cron: '0 * * * *' # ทุก 1 ชั่วโมง
+  workflow_dispatch: # ให้รันด้วยตนเองได้
+
+jobs:
+  upload_shorts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run upload script
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          SHEET_NAME: ${{ secrets.SHEET_NAME }}
+          VIDEO_FILE_NAME: ${{ secrets.VIDEO_FILE_NAME }}
+        run: node upload.js
