@@ -1,0 +1,34 @@
+name: Upload YouTube Shorts
+
+on:
+  workflow_dispatch:        # ✅ เพิ่ม trigger สำหรับกดรันเอง
+  schedule:
+    - cron: '0 23 * * *'    # 06:00 ไทย
+    - cron: '0 0-18 * * *'  # 07:00 - 01:00 ไทย
+
+jobs:
+  upload_shorts:
+    runs-on: ubuntu-latest
+
+    env:
+      SHEET_API_URL: ${{ secrets.SHEET_API_URL }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REDIRECT_URI: ${{ secrets.YT_REDIRECT_URI }}
+      YT_ACCESS_TOKEN: ${{ secrets.YT_ACCESS_TOKEN }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Script
+        run: node upload.js
