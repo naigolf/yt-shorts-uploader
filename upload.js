@@ -42,9 +42,9 @@ const uploadToYouTube = async (filePath) => {
     );
 
     auth.setCredentials({
-      access_token: process.env.YT_ACCESS_TOKEN,
-      refresh_token: process.env.YT_REFRESH_TOKEN,
-    });
+  refresh_token: process.env.YT_REFRESH_TOKEN,
+});
+
 
     const youtube = google.youtube({ version: 'v3', auth });
 
