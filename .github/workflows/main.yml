@@ -2,6 +2,7 @@ name: Upload YouTube Shorts
 
 # ทุก 1 ชั่วโมง
 on:
+workflow_dispatch:        # ✅ เพิ่ม trigger สำหรับกดรันเอง
   schedule:
     # ช่วง 23:00 - 23:59 UTC (06:00-06:59 ไทย)
     - cron: '0 23 * * *'
