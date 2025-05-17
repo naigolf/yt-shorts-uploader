@@ -76,6 +76,8 @@ const uploadToYouTube = async (filePath) => {
 const main = async () => {
   console.log("🚀 Starting process...");
   console.log("🔍 SHEET_API_URL:", process.env.SHEET_API_URL);
+  const res = await fetch(process.env.SHEET_API_URL);
+
 
 
   try {
