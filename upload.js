@@ -63,9 +63,18 @@ const main = async () => {
   const SHEET_API_URL = process.env.SHEET_API_URL;
   console.log("🔍 SHEET_API_URL:", SHEET_API_URL);
 
-  const url = await getVideoUrl();
+  let url;
+  try {
+    url = await getVideoUrl();
+  } catch (err) {
+    console.error("❌ Failed to fetch video URL:", err.message);
+    return;
+  }
+
+  // ✅ หยุดทำงานทันทีถ้าไม่ได้ลิงก์
   if (!url || !url.startsWith("http")) {
-    return console.log("❌ No video to upload.");
+    console.log("❌ No video to upload. Exiting...");
+    return;
   }
 
   console.log("📥 Video URL:", url);
@@ -83,5 +92,6 @@ const main = async () => {
   console.log("🧹 Deleting video from Google Drive...");
   await deleteRemoteVideo();
 };
+
 
 main();
