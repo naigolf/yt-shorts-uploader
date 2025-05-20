@@ -3,8 +3,16 @@ name: Upload YouTube Shorts
 on:
   workflow_dispatch:        # ✅ เพิ่ม trigger สำหรับกดรันเอง
   schedule:
-    - cron: '0 23 * * *'    # 06:00 ไทย
-    - cron: '0 0-18 * * *'  # 07:00 - 01:00 ไทย
+    # จันทร์ถึงพฤหัส + อาทิตย์ (3 ครั้ง)
+    - cron: '0 3 * * 0,1,2,3,4'
+    - cron: '0 8 * * 0,1,2,3,4'
+    - cron: '0 13 * * 0,1,2,3,4'
+
+    # ศุกร์–เสาร์ (4 ครั้ง)
+    - cron: '0 3 * * 5,6'
+    - cron: '0 6 * * 5,6'
+    - cron: '0 10 * * 5,6'
+    - cron: '0 13 * * 5,6'
 
 jobs:
   upload_shorts:
