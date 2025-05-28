@@ -1,0 +1,14 @@
+🔹 YouTube Data API v3 
+https://console.cloud.google.com/apis/library/youtube.googleapis.com
+copy Client ID: (ของคุณ)
+copy Client Secret: (ของคุณ)
+
+🔹 https://developers.google.com/oauthplayground
+กด ⚙️ รูปเฟืองขวาบน → ตั้งค่านี้:
+ติ๊ก ✅ Use your own OAuth credentials
+Client ID: (ของคุณ)
+Client Secret: (ของคุณ)
+🔹🔹
+Step 1: ใส่ scope https://www.googleapis.com/auth/youtube.upload
+Step 2: Exchange Authorization Code → จะได้ refresh_token ใหม่
+Step 2: copy refresh_token → ไปใส่ใน GitHub Secrets ใหม่
