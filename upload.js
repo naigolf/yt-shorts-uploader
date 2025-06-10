@@ -34,8 +34,8 @@ const uploadToYouTube = async (filePath) => {
     part: ['snippet', 'status'],
     requestBody: {
       snippet: {
-        title: 'On My Way',
-        description: '#OnMyWay',
+        title: 'On My Way #shorts',
+        description: '#shorts',
         tags: ['shorts'],
         categoryId: '22'
       },
